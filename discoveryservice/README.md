@@ -67,7 +67,7 @@ spring:
 # - org.springframework.cloud.netflix.eureka.EurekaClientConfigBean 에서 설정
 
 # eureka.client.fetch-registry (default value = true)
-# - 해당 인스턴스가 다른 사용자가 검색할 수 있도록 해당 정보를 유레카 서버에 등록해야 하는지 여부를 나타내는 플래그 변수
+# - eureka 서버로부터 인스턴스들의 정보를 주기적으로 가져올 것인지를 설저앟는 속성(true 일 경우, 갱싱된 정보를 받겠다는 의미) 
 # - org.springframework.cloud.netflix.eureka.EurekaClientConfigBean 에서 설정
 
 <br>
