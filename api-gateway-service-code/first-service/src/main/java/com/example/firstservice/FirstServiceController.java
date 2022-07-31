@@ -1,16 +1,16 @@
-package com.example.apigatewayservice;
+package com.example.firstservice;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping
+@RequestMapping("/first-service")
 public class FirstServiceController {
 
-    @GetMapping("/welcome")
+    @GetMapping("welcome")
     public String welcome() {
-        return "Welcome to the first service";
+        return "Welcome to the First service";
     }
 
 }
