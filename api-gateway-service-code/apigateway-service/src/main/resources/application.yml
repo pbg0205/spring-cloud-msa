@@ -35,4 +35,9 @@ spring:
           filters:
             #            - AddRequestHeader=second-request, second-request-header2
             #            - AddResponseHeader=second-response, second-response-header2
-            - CustomLoggingFilter
+            - name: CustomLoggingFilter
+            - name: HighestLoggingFilter
+              args:
+                baseMessage: Spring Cloud Gateway HighestLoggingFilter
+                preLogger: true
+                postLogger: true
