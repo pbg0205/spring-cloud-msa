@@ -12,8 +12,8 @@ spring:
       path: /h2-console
   datasource:
     url: jdbc:h2:mem:test
-    username: sa
-    password:
+#    username: sa
+#    password:
 
 eureka:
   instance:
