@@ -5,15 +5,16 @@ import com.example.userservice.controller.dto.UserDto;
 import com.example.userservice.domain.UserEntity;
 import com.example.userservice.domain.UserRepository;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
-import org.modelmapper.spi.MatchingStrategy;
 import org.springframework.stereotype.Service;
 
 import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor
+@Slf4j
 public class UserServiceimpl implements UserService {
 
     private final UserRepository userRepository;
@@ -26,6 +27,8 @@ public class UserServiceimpl implements UserService {
         modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
         userDto.setEncryptedPassword("encrypted password");
         UserEntity userEntity = modelMapper.map(userDto, UserEntity.class);
+
+        log.debug("userEntity : {}", userEntity);
 
         userRepository.save(userEntity);
 

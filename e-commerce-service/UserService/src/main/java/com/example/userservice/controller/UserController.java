@@ -4,6 +4,7 @@ import com.example.userservice.controller.dto.UserCreateRequestDto;
 import com.example.userservice.controller.dto.UserDto;
 import com.example.userservice.service.UserService;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
 import org.springframework.core.env.Environment;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping
 @RequiredArgsConstructor
+@Slf4j
 public class UserController {
 
     private final Environment environment;
@@ -37,6 +39,9 @@ public class UserController {
         ModelMapper modelMapper = new ModelMapper();
         modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
         UserDto userDto = modelMapper.map(userCreateRequestDto, UserDto.class);
+
+        log.debug("userDto: {}", userDto);
+
         userService.createUser(userDto);
         return "Create user method is called";
     }
